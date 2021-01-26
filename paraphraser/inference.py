@@ -32,7 +32,7 @@ class Paraphraser(object):
         """Paraphrase by sampling a distribution
 
         Args:
-            sentence (str): A sentence input that will be paraphrased by 
+            sentence (str): A sentence input that will be paraphrased by
                 sampling from distribution.
             sampling_temp (int) : A number between 0 an 1
 
@@ -44,7 +44,7 @@ class Paraphraser(object):
 
     def greedy_paraphrase(self, sentence):
         """Paraphrase using greedy sampler
-    
+
         Args:
             sentence : The source sentence to be paraphrased.
 
@@ -89,7 +89,7 @@ class Paraphraser(object):
         ]
 
         predictions = self.sess.run(feeds, feed_dict)[0]
-        #print(predictions)
+        print(predictions)
         return self.translate(predictions, decoder, id_to_vocab, seq_source_words[0])
 
     def translate(self, predictions, decoder, id_to_vocab, seq_source_words):
@@ -134,10 +134,9 @@ def main():
         source_sentence = input("Source: ")
         #p = paraphraser.greedy_paraphrase(source_sentence)
         #print(p)
-        paraphrases = paraphraser.sample_paraphrase(source_sentence, sampling_temp=0.75, how_many=10)
+        paraphrases = paraphraser.sample_paraphrase(source_sentence, sampling_temp=0.75, how_many=20)
         for i, paraphrase in enumerate(paraphrases):
             print("Paraph #{}: {}".format(i, paraphrase))
 
 if __name__ == '__main__':
     main()
-

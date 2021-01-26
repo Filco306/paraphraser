@@ -6,7 +6,7 @@ from pprint import pprint as pp
 
 def load_sentence_embeddings():
     '''Load John Wieting sentence embeddings'''
-    with open("../../para-nmt-50m/data/ngram-word-concat-40.pickle", 'rb') as f:
+    with open("para-nmt-50m/data/ngram-word-concat-40.pickle", 'rb') as f:
         # [ numpy.ndarray(95283, 300), numpy.ndarray(74664, 300), (trigram_dict, word_dict)]
         x = pickle.load(f, encoding='latin1')
         word_vocab_size, embedding_size = x[1].shape
@@ -21,7 +21,7 @@ def load_sentence_embeddings():
 
         word_embeddings = np.vstack((word_embeddings, np.random.randn(2, embedding_size)))
 
-        return (word_to_id, idx_to_word, word_embeddings, word_to_id['<START>'], 
+        return (word_to_id, idx_to_word, word_embeddings, word_to_id['<START>'],
                word_to_id['<END>'], word_to_id['UUUNKKK'], word_to_id['★'])
 
 def load_glove_embeddings():
@@ -37,9 +37,9 @@ def load_glove_embeddings():
         id_to_word[word_vocab_size+2] = 'UUUNKKK'
         id_to_word[word_vocab_size+3] = '★'
         word_embeddings = np.vstack((word_embeddings, np.random.randn(4, embedding_size)))
-        return (word_to_id, id_to_word, word_embeddings, word_to_id['<START>'], 
+        return (word_to_id, id_to_word, word_embeddings, word_to_id['<START>'],
                word_to_id['<END>'], word_to_id['UUUNKKK'], word_to_id['★'])
-        
+
 
 if __name__ == '__main__':
     word_to_id, idx_to_word, embedding, start_id, end_id, unk_id, mask_id = load_sentence_embeddings()
@@ -47,4 +47,3 @@ if __name__ == '__main__':
     #pp(idx_to_word)
     #pp(word_to_id)
     #print(embedding.shape)
-

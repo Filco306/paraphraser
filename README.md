@@ -1,4 +1,4 @@
-# Paraphraser 
+# Paraphraser
 
 This project providers users the ability to do paraphrase generation for sentences through a clean and simple API.  A demo can be seen here: [pair-a-phrase](http://pair-a-phrase.it)
 
@@ -20,6 +20,7 @@ Download the model checkpoint from the link above and run:
 
 ```
 python inference.py --checkpoint=<checkpoint_path/model-171856>
+python inference.py --checkpoint=model/model-171856
 ```
 
 ### Datasets
@@ -44,7 +45,7 @@ Training was done for 2 epochs on a Nvidia GTX 1080 and evaluted on the BLEU sco
 * pip installable package
 * Explore deeper number of layers
 * Recurrent layer dropout
-* Greater dataset augmentation 
+* Greater dataset augmentation
 * Try residual layer
 * Model compression
 * Byte pair encoding for out of set vocabulary
@@ -52,17 +53,16 @@ Training was done for 2 epochs on a Nvidia GTX 1080 and evaluted on the BLEU sco
 ## Citations
 
 ```
-@inproceedings { wieting-17-millions, 
-    author = {John Wieting and Kevin Gimpel}, 
-    title = {Pushing the Limits of Paraphrastic Sentence Embeddings with Millions of Machine Translations}, 
-    booktitle = {arXiv preprint arXiv:1711.05732}, year = {2017} 
+@inproceedings { wieting-17-millions,
+    author = {John Wieting and Kevin Gimpel},
+    title = {Pushing the Limits of Paraphrastic Sentence Embeddings with Millions of Machine Translations},
+    booktitle = {arXiv preprint arXiv:1711.05732}, year = {2017}
 }
 
-@inproceedings { wieting-17-backtrans, 
-    author = {John Wieting, Jonathan Mallinson, and Kevin Gimpel}, 
-    title = {Learning Paraphrastic Sentence Embeddings from Back-Translated Bitext}, 
-    booktitle = {Proceedings of Empirical Methods in Natural Language Processing}, 
-    year = {2017} 
+@inproceedings { wieting-17-backtrans,
+    author = {John Wieting, Jonathan Mallinson, and Kevin Gimpel},
+    title = {Learning Paraphrastic Sentence Embeddings from Back-Translated Bitext},
+    booktitle = {Proceedings of Empirical Methods in Natural Language Processing},
+    year = {2017}
 }
 ```
-

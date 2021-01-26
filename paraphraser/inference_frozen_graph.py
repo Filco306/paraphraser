@@ -47,7 +47,7 @@ def translate(predictions, decoder, id_to_vocab, end_id):
         predictions : arrays of vocabulary ids
         decoder : 0 for greedy, 1 for sample, 2 for beam
         id_to_vocab : dict of vocabulary index to word
-        end_id : end token index 
+        end_id : end token index
 
     Returns:
         str : the paraphrase
@@ -104,11 +104,12 @@ def infer(sess, model, decoder, source_sent, id_to_vocab, end_id, temp):
     ]
 
     predictions = sess.run(feeds, feed_dict)[0][0]
+    print("PREDICTIONS ARE {}".format(predictions))
     return translate(predictions, decoder, id_to_vocab, end_id)
 
 def greedy_paraphrase(sentence):
     """Paraphrase using greedy sampler
-    
+
     Args:
         sentence : The source sentence to be paraphrased.
 
@@ -123,7 +124,7 @@ def sampler_paraphrase(sentence, sampling_temp=1.0):
     """Paraphrase by sampling a distribution
 
     Args:
-        sentence (str): A sentence input that will be paraphrased by 
+        sentence (str): A sentence input that will be paraphrased by
             sampling from distribution.
         sampling_temp (int) : A number between 0 an 1
 
@@ -138,9 +139,7 @@ def main():
     while 1:
         source_sentence = input("Source: ")
         #print("Paraph: {}".format(sampler_paraphrase('hello world.')))
-        print("Paraph: {}".format(greedy_paraphrase('hello world.')))
+        print("Paraph: {}".format(sampler_paraphrase('hello world.')))
 
 if __name__ == '__main__':
     main()
-
-
